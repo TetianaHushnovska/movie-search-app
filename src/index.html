@@ -4,19 +4,52 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <title>Movie search app</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
+
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <section class="section-search">
+      <form class="form">
+        <label class="search-label">
+          <input
+            class="css-input js-input"
+            type="text"
+            name="search-inp"
+            autofocus
+            placeholder="Search movies..."
+          />
+          <button class="css-button" type="submit">Search</button>
+        </label>
+      </form>
+    </section>
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+    <div class="loader initial-loader visually-hidden"></div>
 
-    <load src="./partials/footer.html" />
+    <section class="section-gallery">
+      <ul class="gallery"></ul>
+
+      <div class="load-more-wrapper">
+        <button type="button" class="load-more-btn visually-hidden">
+          Load more
+        </button>
+        <div class="loader aditional-loader visually-hidden"></div>
+      </div>
+
+      <button id="scrollToTopBtn" class="scroll-top visually-hidden">
+        <i class="fa fa-arrow-up"></i>
+      </button>
+    </section>
 
     <script type="module" src="./main.js"></script>
   </body>

@@ -1,18 +1,205 @@
 /**
   |============================
-  | include css partials with
-  | default @import url()
+  | Include CSS partials
   |============================
 */
-/* Common styles */
-@import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+@import url('./reset.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #d1cece;
+}
+
+/* 🔹 Секція пошуку */
+.section-search {
+  max-width: 100%;
+  width: 90%;
+  margin: 36px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-label {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 375px;
+}
+
+.css-input {
+  flex-grow: 1;
+  height: 40px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background-color: rgb(236, 235, 235);
+}
+
+.css-input:hover {
+  border-color: #000000;
+}
+
+.css-input:focus {
+  outline: none;
+  border-color: #4e75ff;
+}
+
+.css-input::placeholder {
+  color: #808080;
+}
+
+.css-button {
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 16px;
+}
+
+.css-button:hover {
+  background-color: #4c8cff;
+}
+
+.visually-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 🔹 Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  width: 90%;
+  max-width: 1128px;
+  margin: 0 auto 36px auto;
+}
+
+.movie-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+}
+
+.movie-poster {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.movie-info {
+  font-size: 14px;
+  color: #666;
+}
+
+/* 🔹 Кнопка "Завантажити ще" */
+.load-more-btn {
+  display: block;
+  width: 150px;
+  height: 45px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0 auto 36px auto;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background-color: #4c8cff;
+}
+
+/* 🔹 Кнопка "Прокрутка вгору" */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #817e80, #438ceb);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-top:hover {
+  background: linear-gradient(135deg, #838182, #337dc7);
+  transform: scale(1.1);
+}
+
+.scroll-top:active {
+  transform: scale(0.9);
+}
+
+/* 🔹 АДАПТИВНІСТЬ */
+
+/* 📱 Мобільні пристрої (до 480px) */
+@media screen and (max-width: 480px) {
+  .section-search {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .search-label {
+    flex-direction: column;
+  }
+
+  .css-input {
+    width: 100%;
+  }
+
+  .css-button {
+    width: 100%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 📱 Планшети (481px - 768px) */
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 💻 Десктопи (від 1024px) */
+@media screen and (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
